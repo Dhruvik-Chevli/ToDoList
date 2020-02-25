@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let navigationController = UINavigationController(rootViewController: TableViewController())
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else {
             window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = TableViewController()
+            window?.rootViewController = navigationController
             window?.makeKeyAndVisible()
         }
         return true

@@ -13,20 +13,46 @@ struct eachTask{
 class TableViewController: UITableViewController {
 
     var Tasks = [
-        eachTask(task:"Install XCode"),
-        eachTask(task:"Learn Swift"),
-        eachTask(task:"Wash Clothes"),
-        eachTask(task:"Code"),
-        eachTask(task:"WebDev")
+        eachTask(task:"XCode"),
+        eachTask(task:"Swift"),
+        eachTask(task:"Python"),
+        eachTask(task:"CPP"),
+        eachTask(task:"Java")
     ]
     fileprivate func setUpTableView()
     {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.rowHeight = 100
+        tableView.rowHeight = 80
         tableView.register(TableViewCell.self,forCellReuseIdentifier:"TableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
+        self.title = "To-Do List"
+        self.navigationController!.navigationBar.barStyle = .default
+        self.navigationController!.navigationBar.isTranslucent = true
+        self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "AmericanTypewriter-Bold", size: 25)!]
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Task",
+        style: .plain,
+        target: self,
+        action: #selector(rightHandAction))
+
+        //self.navigationController!.navigationBar.heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
+    @objc
+    func rightHandAction() {
+        print("right bar button action")
+        let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter a Task"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            print("Text field: \(String(describing: textField!.text))")
+            self.Tasks.insert(eachTask(task:textField!.text!), at: self.Tasks.endIndex)
+            self.tableView.reloadData()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
