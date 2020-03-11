@@ -23,11 +23,14 @@ class TableViewController: UITableViewController {
         //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 215
-        self.title = "Users"
-        self.navigationController!.navigationBar.barStyle = .default
-        self.navigationController!.navigationBar.isTranslucent = true
-        self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "AmericanTypewriter-Bold", size: 25)!]
+        tableView.rowHeight = 231
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        
+        title = "Users"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController!.navigationBar.barStyle = .default
+        navigationController!.navigationBar.isTranslucent = true
     }
     func getusers()
     {

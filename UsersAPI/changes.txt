@@ -1,0 +1,11 @@
+1. All structs should be named LikeThis with the first letter capitalised. This is called PascalCase. Variables and functions are with camelCase.
+
+2. Your structUsers.swift file should be renamed to User.swift and the userInfo struct to User.
+
+3. Use UIFont.systemFont(...) instead of UIFont(name:...) and try to learn more about Apple's Human Interface Guidelines. Generally, all iOS apps should try to stick to them.
+
+4. Make all tableview cells non-selectable.
+
+5. Clean your constraints a bit, very messy right now.
+
+6. Good job on using DispatchQueues and making a separate networking layer. Generally, implementing a separate networking layer is a little different. Read up about it too. But really good job.
