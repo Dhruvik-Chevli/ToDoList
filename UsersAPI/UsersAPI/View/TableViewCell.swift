@@ -120,7 +120,7 @@ class TableViewCell: UITableViewCell {
     }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style,reuseIdentifier: reuseIdentifier)
-        addSubview(backgroundCard)
+        //addSubview(backgroundCard)
         addSubview(eusername)
         addSubview(ename)
         addSubview(locPin)
@@ -130,7 +130,9 @@ class TableViewCell: UITableViewCell {
         addSubview(wsiv)
         addSubview(ewebsite)
         addSubview(ecomp)
+        addSubview(backgroundCard)
         setLabelConstraints()
+        //selectionStyle = .none
     }
     
     fileprivate func backgroundCardConstraints() {
