@@ -12,6 +12,7 @@ enum UserError:Error{
     case canNotProcessData
 }
 struct userRequest{
+    
     let resourceURL:URL
     //let users:[userInfo]
     init() {

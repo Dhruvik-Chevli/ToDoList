@@ -230,11 +230,12 @@ class TableViewCell: UITableViewCell {
     func set(res:userInfo) {
         eusername.text = String(res.username)
         ename.text = String(res.name)
-        locPin.image = #imageLiteral(resourceName: "Unknown")
+        locPin.image = UIImage(systemName: "mappin")
+        locPin.tintColor = .black
         ecity.text = String(res.address.city)
-        phoneiv.image = #imageLiteral(resourceName: "phone")
+        phoneiv.image = UIImage(systemName: "phone.fill")
         enumber.text = String(res.phone)
-        wsiv.image = #imageLiteral(resourceName: "website")
+        wsiv.image = UIImage(systemName: "globe")
         ewebsite.text = String(res.website)
         ecomp.text = String(res.company.name)
     }
